@@ -1,0 +1,2 @@
+这个文件夹用于放置图片可视化结果
+This folder is used to place the image visualization results
