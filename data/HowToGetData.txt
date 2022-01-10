@@ -1,0 +1,6 @@
+你应该在放置‘.nc’文件
+You should place the ‘. NC’file
+
+
+下载地址
+ftp://data.argo.org.cn/pub/ARGO/BOA_Argo/NetCDF/
