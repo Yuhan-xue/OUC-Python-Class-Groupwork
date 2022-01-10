@@ -1,0 +1,12 @@
+此文件夹原先是用于放置测试数据的数据文件夹，数据超过了Github上传限制故只有这个描述。
+This folder was originally used to place test data folder, data beyond the Github upload limit so only this description.
+
+你应该在放置‘.nc’文件
+You should place the ‘. NC’ file
+
+推荐从主程序中调用下载模块
+It is recommended to call the download module from the main program
+
+下载地址
+ftp://data.argo.org.cn/pub/ARGO/BOA_Argo/NetCDF/
+
