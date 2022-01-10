@@ -1,5 +1,9 @@
-# OUC-Python-Class-Groupwork
-OUC 中国海洋大学 PYTHON小组作业 ARGO数据可视化（含GUI）
+# 2021秋python周一三上机班ARGO数据小组源程序说明界面
+
+这是中国海洋大学本科Python初学者的课程项目  
+感谢中国海洋大学基础课：**[008501101119]Python程序设计**  
+感谢王璐老师
+
 ## 功能说明
 
 ### 1、数据下载
@@ -27,7 +31,7 @@ PYTHON**内置库**
 + os  
 + shutil
 + tkinter
-+ tplib
++ ftplib
 
 PYTHON**第三方库**
 
@@ -45,3 +49,5 @@ PYTHON**第三方库**
   + lib <存放GUI图标文件>
   + pic <存放可视化后的JPG文件>
   + gif <存放可视化后的JPG文件>
+
+小小的吐槽一下，这个小组作业是我一个人写的😅  
