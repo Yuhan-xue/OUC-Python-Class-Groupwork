@@ -1,8 +1,8 @@
-# 2021秋python周一三上机班ARGO数据小组源程序说明界面
+# 2021秋Python ARGO数据小组 源程序 说明界面
 
 这是中国海洋大学本科Python基础课的课程小组项目作业  
-感谢中国海洋大学基础课：**[008501101119]Python程序设计**  
-感谢王璐老师
+中国海洋大学基础课：**[008501101119]Python程序设计**  
+
 
 ## 功能说明
 
@@ -20,20 +20,20 @@
 
 ## 源代码运行说明
 
-### PYTHON环境版本(ANACONDA)
+### Python环境版本(ANACONDA)
 
 3.9.7
 
 ### 程序module依赖
 
-PYTHON**内置库**
+Python**内置库**
 
 + os  
 + shutil
 + tkinter
 + ftplib
 
-PYTHON**第三方库**
+Python**第三方库**
 
 + cartopy(只推荐conda安装方式)
 + matplotlib
@@ -50,4 +50,3 @@ PYTHON**第三方库**
   + pic <存放可视化后的JPG文件>
   + gif <存放可视化后的JPG文件>
 
-小小的吐槽一下，这个小组作业是俺一个人写的😅  
