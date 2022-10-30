@@ -46,7 +46,7 @@ def getdata():
         tk.Label(window, text=f'成功进入FTP服务器：{ftp.pwd()}', font=(
             'Arial', 12)).place(x=0, y=60)
     file_list = list(ftp.nlst())
-    for i in range(13):
+    for i in range(14):
         file_list.pop()
     file_sta = (file_list[0]).split('_')
     file_end = (file_list[-1]).split('_')
