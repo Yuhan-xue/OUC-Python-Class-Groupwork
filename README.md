@@ -1,4 +1,9 @@
 # 2021秋Python ARGO数据小组 源程序 说明界面
+You can get a English Version [here](README_EN.md)
+
+*2029/3/27 更新预告*
+- 1 添加[English](README_EN.md)说明、
+- 2 绘图优化 ~~🤣优化我刚学Python写出来的青涩代码~~
 
 这是中国海洋大学本科Python基础课的课程小组项目作业  
 中国海洋大学基础课：**[008501101119]Python程序设计**  
@@ -35,7 +40,7 @@ Python**内置库**
 
 Python**第三方库**
 
-+ cartopy(只推荐conda安装方式)
++ cartopy
 + matplotlib
 + numpy
 + netCDF4

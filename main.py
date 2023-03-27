@@ -172,6 +172,12 @@ def demo():
     file_dir = './demo_data'
     printfil()
 
+def getnc(fl):
+    a=[]
+    for i in fl:
+        if i[-2:]=='nc':
+            a.append(i)
+    return a
 
 def selfdata():
     global file_dir, file_list, window, var, forma
@@ -195,6 +201,7 @@ def printfil():
     file_list = list(os.listdir(file_dir))
     for i in range(len(file_list)):
         file_list[i] = file_dir+'/'+file_list[i]
+    file_list=getnc(file_list)
     window.destroy()
     window = tk.Tk()
     window.geometry("300x500")
@@ -266,9 +273,11 @@ def forma_gif():
         data = Dataset(fil)
         lon = data.variables['lon']
         lat = data.variables['lat']
-        data1 = data.variables[var]
-        lat = slice(np.min(lat), np.max(lat)+lat[1]-lat[0], lat[1]-lat[0])
-        lon = slice(np.min(lon), np.max(lon)+lon[1]-lon[0], lon[1]-lon[0])
+        data1 = np.array(data.variables[var])
+        data1[data1>2000.0]=np.nan
+        data1[data1<-2000.0]=np.nan
+        lat = slice(np.nanmin(lat), np.nanmax(lat)+lat[1]-lat[0], lat[1]-lat[0])
+        lon = slice(np.nanmin(lon), np.nanmax(lon)+lon[1]-lon[0], lon[1]-lon[0])
         Lat, Lon = np.mgrid[lat, lon]
         tk.Label(
             window, text=f'正在可视化{file_name[:-3]}', font=('Arial', 12)).pack()
@@ -290,7 +299,9 @@ def forma_jpg():
         data = Dataset(fil)
         lon = data.variables['lon']
         lat = data.variables['lat']
-        data1 = data.variables[var]
+        data1 = np.array(data.variables[var])
+        data1[data1>2000.0]=np.nan
+        data1[data1<-2000.0]=np.nan
         lat = slice(np.min(lat), np.max(lat)+lat[1]-lat[0], lat[1]-lat[0])
         lon = slice(np.min(lon), np.max(lon)+lon[1]-lon[0], lon[1]-lon[0])
         Lat, Lon = np.mgrid[lat, lon]
@@ -308,11 +319,11 @@ def picmake(Lon, Lat, data1, name):
         ax = plt.axes(projection=ccrs.PlateCarree(central_longitude=180))
         ax.coastlines()
         data_drew = data1[0, i, :, :]
-        plt.contour(Lon, Lat, data_drew, 16, alpha=0.75, linewidths=0.5,
+        plt.contour(Lon, Lat, data_drew, np.linspace(np.nanmin(data1),np.nanmax(data1),10), alpha=0.75, linewidths=0.5,
                     colors='black', transform=ccrs.PlateCarree(central_longitude=0))
-        c = plt.contourf(Lon, Lat, data_drew, 16,
-                         transform=ccrs.PlateCarree(central_longitude=0))
-        plt.colorbar(c)
+        c = plt.contourf(Lon, Lat, data_drew, np.linspace(np.nanmin(data1),np.nanmax(data1),40),
+                         transform=ccrs.PlateCarree(central_longitude=0),cmap='RdBu_r')
+        plt.colorbar(c,orientation="horizontal",extend='both',shrink=0.7)
         plt.title(f'depth={i}', fontsize='xx-large')
         name1 = './pic/'+name+f'_depth={i}.jpg'
         plt.savefig(name1, dpi=200)
@@ -329,10 +340,13 @@ def gifmake(Lon, Lat, data1, name):
         ax = plt.axes(projection=ccrs.PlateCarree(central_longitude=180))
         ax.coastlines()
         data_drew = data1[0, num, :, :]
-        ax.contourf(Lon, Lat, data_drew, 16,
-                    transform=ccrs.PlateCarree(central_longitude=0))
-        ax.contour(Lon, Lat, data_drew, 16, linewidths=0.5, alpha=0.75,
+        #print(np.linspace(np.nanmin(data1),np.nanmax(data1),10))
+        c=ax.contourf(Lon, Lat, data_drew, np.linspace(np.nanmin(data1),np.nanmax(data1),40),
+                    transform=ccrs.PlateCarree(central_longitude=0),cmap='RdBu_r')
+        ax.contour(Lon, Lat, data_drew, np.linspace(np.nanmin(data1),np.nanmax(data1),10), 
+                   linewidths=0.5, alpha=0.75,
                    colors='black', transform=ccrs.PlateCarree(central_longitude=0))
+        plt.colorbar(c,orientation="horizontal",extend='both',shrink=0.7)
         plt.title(f'depth={num}', fontsize='xx-large')
         return ax
     ani = animation.FuncAnimation(
