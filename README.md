@@ -1,7 +1,7 @@
 # 2021秋Python ARGO数据小组 源程序 说明界面
 You can get a English Version [here](README_EN.md)
 
-*2029/3/27 更新预告*
+*2023/3/27 更新预告*
 - 1 添加[English](README_EN.md)说明、
 - 2 绘图优化 ~~🤣优化我刚学Python写出来的青涩代码~~
 
