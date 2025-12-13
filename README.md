@@ -5,7 +5,7 @@ You can get a English Version [here](README_EN.md)
 - 此项目不建议直接提交作为作业
 
 *2022/3/27 更新*
-- 1 添加[English](README_EN.md)说明、
+- 1 添加[English](README_EN.md)说明
 - 2 绘图优化 
 
 这是中国海洋大学本科Python基础课的课程小组项目作业  
@@ -57,6 +57,7 @@ Python**第三方库**
   + lib <存放GUI图标文件>
   + pic <存放可视化后的JPG文件>
   + gif <存放可视化后的JPG文件>
+
 
 
 
